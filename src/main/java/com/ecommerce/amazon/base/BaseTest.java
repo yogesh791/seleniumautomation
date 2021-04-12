@@ -21,9 +21,10 @@ public class BaseTest {
 		Reporter.log("=====Browser Session Started=====", true);
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox");
+		options.addArguments("--no-sandbox"); //Bypass OS security model   
+		options.addArguments("--start-maximized");
 		options.addArguments("--disable-dev-shm-usage");
-		options.setBinary("/opt/google/chrome/google-chrome");
+		options.addArguments("--headless");
         driver=new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
