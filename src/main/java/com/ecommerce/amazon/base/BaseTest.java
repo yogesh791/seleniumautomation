@@ -20,13 +20,8 @@ public class BaseTest {
 		
 		Reporter.log("=====Browser Session Started=====", true);
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox"); //Bypass OS security model   
-		options.addArguments("--start-maximized");
-		options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--headless");
-		options.addArguments("--remote-debugging-port=9222");
-        driver=new ChromeDriver(options);
+		
+        driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.amazon.in/");
